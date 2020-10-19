@@ -10,6 +10,8 @@ class RoverController
 {
     /**
      * @param Parameters $parameters
+     * @return array
+     * @throws Exceptions\GridSequenceException
      * @throws Exceptions\MoveSequenceException
      * @throws Exceptions\PositionSequenceException
      */

@@ -12,11 +12,15 @@ class Controller
 
     public function render()
     {
-        $request = new RequestBuilder();
+        try {
+            $request = new RequestBuilder();
+            $data = (new RoverController())->move($request->make());
+            print_r($data);
 
-        $data = (new RoverController())->move($request->make());
-
-        var_dump($data);
+        }catch (\Exception $e)
+        {
+            print_r($e->getMessage());
+        }
     }
 
 }

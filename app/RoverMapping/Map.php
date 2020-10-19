@@ -42,16 +42,24 @@ class Map
     {
         switch ($rover->f){
             case 'N';
-                $rover->y+=1;
+                if($rover->y < $this->endGridCoordinate[1]) {
+                    $rover->y += 1;
+                }
                 break;
             case 'S';
-                $rover->y-=1;
+                if($rover->y > 0) {
+                    $rover->y -= 1;
+                }
                 break;
             case 'W';
-                $rover->x-=1;
+                if($rover->x > 0) {
+                    $rover->x -= 1;
+                }
                 break;
             case 'E';
-                $rover->x+=1;
+                if($rover->x < $this->endGridCoordinate[0]) {
+                    $rover->x += 1;
+                }
                 break;
         }
 

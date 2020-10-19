@@ -41,7 +41,7 @@ class Rover
     /**
      * @return string
      */
-    public function currentState()
+    public function currentState(): string
     {
         return $this->x.' '.$this->y.' '.$this->f;
     }

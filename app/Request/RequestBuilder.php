@@ -18,7 +18,7 @@ class RequestBuilder
                     $parameters = &$_POST;
                     break;
             }
-            return new WebParameters($parameters);
+            return new HttpParameters($parameters);
         }
         if(isset($_SERVER['argv'])){
             $arr = $_SERVER['argv'];

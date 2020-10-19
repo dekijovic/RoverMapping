@@ -12,12 +12,15 @@ use function Couchbase\defaultDecoder;
 class DataBuilder
 {
 
+    /** @var array  */
     private $grid;
+    /** @var array */
     private $array;
 
     /**
      * DataBuilder constructor.
      * @param Parameters $params
+     * @throws GridSequenceException
      * @throws MoveSequenceException
      * @throws PositionSequenceException
      */
@@ -76,36 +79,34 @@ class DataBuilder
         if (!$process) {
             throw new GridSequenceException();
         }
-
     }
 
     /**
      * @param $string
-     * @return false|string[]
+     * @return array
      * @throws PositionSequenceException
      */
-    private function processPositionSequence($string)
+    private function processPositionSequence($string): array
     {
         if (strlen($string) == 5) {
             $chars = explode(' ', $string);
-//            var_dump($chars);
             if(is_numeric($chars[0]) && is_numeric($chars[1]) && is_string($chars[2])){
                 return $chars;
             }
         }
-        throw new PositionSequenceException();
+        throw new PositionSequenceException($string);
     }
 
     /**
-     * @param $params
+     * @param $string
      * @return array
      * @throws MoveSequenceException
      */
-    private function processMoveSequence($string)
+    private function processMoveSequence($string): array
     {
         preg_match('/[^R,L,M]/', $string, $matches);
         if(!empty($matches)){
-            throw new MoveSequenceException();
+            throw new MoveSequenceException($string);
         }
         return str_split($string);
     }

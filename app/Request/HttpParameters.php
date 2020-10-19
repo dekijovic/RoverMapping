@@ -4,7 +4,7 @@
 namespace MarsApp\Request;
 
 
-class WebParameters implements Parameters
+class HttpParameters implements Parameters
 {
     /** @var array */
     private $parameters;
