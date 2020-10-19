@@ -1,0 +1,17 @@
+{
+    "name": "deki/rover-mapping",
+    "require": {
+        "phpunit/phpunit": "^9.4"
+    },
+    "authors": [
+        {
+            "name": "Deki Jovic",
+            "email": "dejanjovic10@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MarsApp\\": "app/"
+        }
+    }
+}
