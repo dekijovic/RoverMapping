@@ -11,7 +11,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "MarsApp\\": "app/"
+            "MarsApp\\": "app/",
+            "Tests\\": "tests/"
         }
     }
 }
